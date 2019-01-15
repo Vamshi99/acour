@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.courier{
+			font-size: 20px;
+			background-image: url('https://images.unsplash.com/photo-1470173274384-c4e8e2f9ea4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+			background-size: cover;
+	background-position: center;
+	width: 100%;		
+	height: 700px;
+	background-repeat: no-repeat;
+		}
+
+	.form{
+			position: absolute;
+		    transform: translate(35%,10%);
+			border: 1px solid #333;
+			background-color: rgba(0,0,0,0.6);
+			color: #fff;
+			padding: 100px 100px;
+			border-radius: 20px;
+		}
+		h1{
+			padding-top: 20px;
+			margin-top: 20px;
+			text-align: center;
+			color: #fff;
+		}
+		h5{
+			border-bottom: 1px solid #333;
+		}
+		.second{
+			position: absolute;
+			text-align: justify;
+			top: 60%;
+			left: 35%;
+			/* border: 4px solid orange; */
+			background-color:transparent;
+			padding: 50px;
+		}
+		.otp{
+			border: 1px solid #333;
+			border-radius: 15px;
+			height: 35px;
+			margin-right: 10px;
+		}
+	
+		.sub{
+			border: 1px solid #333;
+			padding: 10px 20px;
+			border-radius: 25px;
+			box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+		}
+		
+		.sub:hover{
+			
+		}
+</style>
+</head>
+
+<body>
+
+
+
+	<!--	<form>-->
+
+
+
+	<!--		<input type="text" name="id" value="{{ package.id }}" /><br />-->
+	<!--{{ package.id }}<br><br>-->
+	<!--		<input type="text" name="id" value="{{ package.roll_no }}" /><br />-->
+	<!-- {{ package.roll_no }}<br><br>-->
+
+	<!--		<input type="text" name="id" value="{{ package.delivery_agent }}" /><br />-->
+
+	<!--{{ package.delivery_agent }}<br><br>-->
+	<!--		<br><br>-->
+
+	<!--	</form>-->
+
+
+
+	
+	<section class="courier">
+	<h1>Courier System</h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<form class="form">
+						<div class="row">
+							<div class="form-grp col-md-6">
+								<label>User-Id:</label>
+							</div>
+							<div class="form-grp col-md-4">
+								<h5>{{ package.id }}</h5>
+							</div>
+							<div class="form-grp col-md-6">
+								<label>Roll-No:</label>
+							</div>
+							<div class="form-grp col-md-4">
+								<h5>{{ package.roll_no }}</h5>
+							</div>
+							<div class="form-grp col-md-6">
+								<label>Agent:</label>
+							</div>
+							<div class="form-grp col-md-6">
+								<h5>{{ package.delivery_service }}</h5>
+                            </div>
+                            <div class="form-grp col-md-6">
+                                    <label>Pile Number:</label>
+                            </div>
+                            <div class="form-grp col-md-6">
+                                    <h5>{{ package.pile_no }}</h5>
+                            </div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<form  class="second" action="{% url 'track:validate' %}" method="POST">
+		{% csrf_token %}
+		<br />
+		<input type="hidden" name="id" value="{{ package.id }}" />
+		<input class="otp" type="text" name="otp" placeholder="Enter OTP">
+		<input class="sub" type="submit" class="last" value="Validate">
+	</form>
+	
+	</section>
+
+	
+
+
+
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

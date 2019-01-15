@@ -1,0 +1,93 @@
+<head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+         <style>
+     /*
+             input[type=text] {
+             width: 100px;
+             -webkit-transition: width 0.4s ease-in-out;
+             transition: width 0.4s ease-in-out;
+                 height: 30px;
+             }
+     */
+             body{
+                 margin: 0;
+                 padding: 0;
+                 background: #e84118;
+             }
+             .search-box{
+                 position: absolute;
+                 top: 50%;
+                 left: 50%;
+                 transform: translate(-50%,-50%);
+                 background: #2f3640;
+                 height: 40px;
+                 border-radius: 40px;
+                 padding: 10px;
+             }
+             .search-box:hover > .search-txt{
+                 width: 240px;
+                 padding: 0 6px;
+             }
+             .search-box:hover > .search-box{
+                 background: #fff;
+             }
+             .search-btn{
+                 color: #e84118;
+                 float: right;
+                 width: 40px;
+                 height: 40px;
+                 border-radius: 50%;
+                 background: #2f3640;
+                 display: flex;
+             
+                 justify-content: center;
+                 align-items: center;
+             }
+             .search-txt{
+                 border: none;
+                 background: none;
+                 outline: none;
+                 float: left;
+                 padding: 0;
+                 color: #fff; 
+                 font-size: 16px;
+                 transition: all 0.4s linear;
+                 line-height: 40px;
+                 width: 0px;
+             }
+             i{
+                 position: absolute;
+                 color: orangered;
+                 text-align: right;
+                 top: 20px;
+                 right: 25px;
+             }
+     
+         </style>
+     </head>
+     <body>
+     <!--
+     <form action="{% url 'track:sclick' %}" method="POST">
+         {% csrf_token %}
+         <br /><br />
+         <div class="search">
+         <i class="fa fa-search">
+         <input  type="text" name="search" placeholder="Search.."></i>
+         </div>
+     </form>
+     -->
+     
+     
+     <form action="{% url 'track:sclick' %}" method="POST">
+      {% csrf_token %}
+      <br />
+     <div class="search-box">
+         <input type="text" class="search-txt" name="search" placeholder="Search.." >
+         <a class="search-btn" href=""></a>
+         <i class="fas fa-search"></i>
+     </div>
+         </form>
+     
+     
+     </body> 

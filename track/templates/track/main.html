@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> TRACK </title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		label:first-child
+		{
+			margin-top: 20px;
+		}
+		
+		.button{
+			position: absolute;
+			margin-bottom: 50px;
+			text-align: center;
+			box-shadow: 0 8px 10px; 
+		}
+		.bu{
+			top: 350px;
+			left: 280px;
+		}
+		
+		.button span{
+			font-size: 35px;
+			color: #fff;
+		}
+
+		.butg a{
+			color: #000;
+			padding: 10px 30px;
+			border: 1px solid #fb257a;
+			border-radius: 50%;
+			background-color: #fb257a;
+		}
+		.butg a:hover{
+			
+			list-style: none;
+			outline: 0;
+			text-decoration: none;
+			background-color: #f50e6a;
+			border: 1px solid #f50e6a;  	
+		}
+/*
+		.bug:before{
+			content: "";
+			width: 2px;
+			display: block;
+			height: 400px;
+			background-color: #000;
+		}
+*/
+		input{
+			border-radius: 12px;
+			padding: 5px;
+			width: 50%;
+			height: 35px;
+			border: 1px solid #333;
+		}
+		input:hover,input:active,
+		{
+			text-decoration: none;
+			border: 1px solid #333;
+		}
+		
+		.but{
+			
+			padding: 10px;
+			position: absolute;
+			left: 280px;
+			transform: translate(50%,50%);
+		}
+		
+		.main{
+			margin-top: 20px;
+			background-image: url('https://images.unsplash.com/photo-1466096115517-bceecbfb6fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+			background-size: cover;
+			background-attachment: fixed;
+			height: 800px;
+			width: 100%;
+		}
+		label{
+			color: #1d1c1c;
+		}
+		.form{
+			background-color: #d8d8d8;
+			margin-top: 100px;
+			text-align: center;
+			border-radius: 15px;
+			padding: 50px 10px;
+			border: 1px solid #333;
+			margin-bottom: 20px;
+		}
+		
+		input[type="button"] {
+  display: block;
+  margin: 200px auto 0 auto;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: none;
+  border:none;
+  background-color: deepSkyBlue;
+  color: azure;
+  &:active, &:hover, &:focus {outline:0;}
+}
+
+.alert-box {
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  width: 100%;
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  position: absolute;
+  top: 0;
+  padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+  font-size: 0.8125rem;
+  background-color: #008cba;
+  border-color: #0078a0;
+  color: white;
+  box-shadow: 0px 1px 5px 0 darkslategrey;
+}
+.alert-box.success {
+  background-color: #43ac6a;
+  border-color: #3a945b;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}
+		h1{
+			text-align: center;
+		}
+		[type="button"], [type="reset"], [type="submit"], button {
+    -webkit-appearance: button;
+    background-color:#fb257a;
+}	
+		
+.vl {
+position: absolute;
+left: 60%;
+top: 30%;
+transform: translate(-30%);
+border: 2px solid #000;
+height: 305px;
+}
+
+.vl-innertext {
+position: absolute;
+top: 50%;
+font-size: 15px;
+transform: translate(-50%, -50%);
+background-color: #f1f1f1;
+border: 1px solid #ccc;
+border-radius: 50%;
+padding: 15px 19px;
+}
+	</style>
+	
+</head>
+<body>
+<h1><u>Courier Service System</u></h1>
+<section class="main">
+		<div class="vl">
+				<span class="vl-innertext">or</span>
+				</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<form  class="form" action="{% url 'track:submit' %}" method="POST">
+					{% csrf_token %}
+					<!-- <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"> -->
+					<!-- <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br> -->
+					<label>Name:</label><br />
+					<input type="text" name="name" placeholder="Your Name"><br /><br />
+
+					<label>Roll-No:</label><br />
+					<input type="text" name="roll_no" placeholder="AM.EN.U4XXXXXXXX"><br />
+					<br />
+
+					<label>Order-id:</label><br />
+					<input type="text" name="order_id" placeholder="Order-id"><br /><br />
+
+					<label>Agent:</label><br />
+					<input type="text" name="agent" placeholder=""><br /><br />	
+					<input type="submit"class="scanner butn" id="pop" onclick="myFunction()" value="Submit">				
+				</form>
+			</div>
+			<div class="col-md-6 butg bug">
+				<!-- <a href="{% url 'track:scan' %}" class="button bu"> -->
+				
+				<a href="{% url 'track:scan' %}" class="button bu"><span class="scanner butn butg bug"  type="submit"> Scan</span></a>
+				
+				
+			</div>
+		</div>
+	</div>
+<!-- 		
+			
+<div class="col-md-6 butg but">
+				<a href="{% url 'track:scan' %}"><input type="submit"class="scanner butn" id="pop" onclick="myFunction()" value="Submit"></a>
+				
+				
+				</a>
+			</div>
+
+		 -->
+	</section>
+
+
+	<script src="bootstrap.min.js"></script>
+	
+	
+	<script>
+//		function notifyBar() {
+//	if(! $('.alert-box').length) {
+//		$('<div class="alert-box success" >Message successfully send!</div>').prependTo('body').delay(5000).fadeOut(1000, function() {
+//    				$('.alert-box').remove();
+//    				});
+//	};
+//};
+
+		function myFunction() {
+  alert("Data Recieved");
+}
+	
+	
+	</script>
+
+</body>
+
+</html>
